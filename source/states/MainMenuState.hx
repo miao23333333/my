@@ -180,10 +180,10 @@ class MainMenuState extends MusicBeatState
 		FlxG.sound.play(Paths.sound('scrollMenu'));
 		for (i in 0 ... menuLightGroup.length) {
 		    if (i != curSelected) {
-		        menuLightGroup[i].alpha = 0.8;
+		        menuLightGroup.members[i].alpha = 0.8;
 		        continue;
 		    }
-		    menuLightGroup[i].alpha = 1;
+		    menuLightGroup.members[i].alpha = 1;
 		}
 	}
 	
@@ -191,7 +191,7 @@ class MainMenuState extends MusicBeatState
 	    var mtext:FlxText = new FlxText(x ,y, 0, text, size);
 		mtext.font = Paths.font("vcr.ttf");
 		mtext.color = FlxColor.BLACK;
-		textGroup.add(mtext);
+		
 		return mtext;
 	}
 	
@@ -203,27 +203,27 @@ class MainMenuState extends MusicBeatState
 			
 	    switch(curSelected) {
 	        case 0:
-	            FlxFlicker.flicker(menuLightGroup[0], 1, 0.06, false, false, function(flick:FlxFlicker)
+	            FlxFlicker.flicker(menuLightGroup.members[0], 1, 0.06, false, false, function(flick:FlxFlicker)
 				{
 				    MusicBeatState.switchState(new AchievementsMenuState());
 				});
 		    case 1:
-	            FlxFlicker.flicker(menuLightGroup[1], 1, 0.06, false, false, function(flick:FlxFlicker)
+	            FlxFlicker.flicker(menuLightGroup.members[1], 1, 0.06, false, false, function(flick:FlxFlicker)
 				{
 				    MusicBeatState.switchState(new FreeplayState());
 				});
 		    case 2:
-		        FlxFlicker.flicker(menuLightGroup[2], 1, 0.06, false, false, function(flick:FlxFlicker)
+		        FlxFlicker.flicker(menuLightGroup.members[2], 1, 0.06, false, false, function(flick:FlxFlicker)
 				{
 				    MusicBeatState.switchState(new StoryMenuState());
 				});
 			case 3:
-			    FlxFlicker.flicker(menuLightGroup[3], 1, 0.06, false, false, function(flick:FlxFlicker)
+			    FlxFlicker.flicker(menuLightGroup.members[3], 1, 0.06, false, false, function(flick:FlxFlicker)
 				{
 				    MusicBeatState.switchState(new OptionsState());
 				});
 			case 4:
-			    FlxFlicker.flicker(menuLightGroup[4], 1, 0.06, false, false, function(flick:FlxFlicker)
+			    FlxFlicker.flicker(menuLightGroup.members[4], 1, 0.06, false, false, function(flick:FlxFlicker)
 				{
 				    MusicBeatState.switchState(new CreditsState());
 				});
