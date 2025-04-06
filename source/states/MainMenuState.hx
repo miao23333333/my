@@ -103,7 +103,7 @@ class MainMenuState extends MusicBeatState
 		add(theModVer);
 		
 		var textX:Array<Float> = [40, 77, 490, 911, 1071];
-		var textY:Array<Float> = [266, 482, 611, 482, 266]
+		var textY:Array<Float> = [266, 482, 611, 482, 266];
 		//y:266,482,611  x:40,77,490,911,1071
 		for (i in 0 ... menuText.length) {
 		    var theText = menuText(menuText[i], textX[i], textY[i], 40);
