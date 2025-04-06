@@ -34,7 +34,7 @@ class MainMenuState extends MusicBeatState
 	    'light4'
 	];
 	
-	var menuText:Array<String> = [
+	var mText:Array<String> = [
 	    'achievements',
 		'freeplay',
 		'story_mode',
@@ -105,8 +105,8 @@ class MainMenuState extends MusicBeatState
 		var textX:Array<Float> = [40, 77, 490, 911, 1071];
 		var textY:Array<Float> = [266, 482, 611, 482, 266];
 		//y:266,482,611  x:40,77,490,911,1071
-		for (i in 0 ... menuText.length) {
-		    var theText = menuText(menuText[i], textX[i], textY[i], 40);
+		for (i in 0 ... mText.length) {
+		    var theText = menuText(mText[i], textX[i], textY[i], 40);
 		    textGroup.add(theText);
 		}
 		
