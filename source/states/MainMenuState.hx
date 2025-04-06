@@ -16,8 +16,7 @@ class MainMenuState extends MusicBeatState
 
 	var menuLightGroup:FlxTypedGroup<FlxSprite>;
 	var textGroup:FlxTypedGroup<FlxSprite>;
-	textGroup = new FlxTypedGroup<FlxSprite>();
-	add(textGroup);
+	
 
 	//Centered/Text options
 	var optionShit:Array<String> = [
@@ -79,6 +78,8 @@ class MainMenuState extends MusicBeatState
 
 		menuLightGroup = new FlxTypedGroup<FlxSprite>();
 		add(menuLightGroup);
+		textGroup = new FlxTypedGroup<FlxSprite>();
+	    add(textGroup);
 
 		for (num => option in optionShit)
 		{
@@ -105,7 +106,7 @@ class MainMenuState extends MusicBeatState
 		var textY:Array<Float> = [266, 482, 611, 482, 266]
 		//y:266,482,611  x:40,77,490,911,1071
 		for (i in 0 ... menuText.length) {
-		    var theText = menuText(menuText[i], textX[i], textY[i]);
+		    var theText = menuText(menuText[i], textX[i], textY[i], 40);
 		    textGroup.add(theText);
 		}
 		
@@ -190,7 +191,7 @@ class MainMenuState extends MusicBeatState
 	    var mtext:FlxText = new FlxText(x ,y, 0, text, size);
 		mtext.font = Paths.font("vcr.ttf");
 		mtext.color = FlxColor.BLACK;
-		mtext.add();
+		textGroup.add(mtext);
 		return mtext;
 	}
 	
