@@ -15,7 +15,8 @@ class MainMenuState extends MusicBeatState
 	
 
 	var menuLightGroup:FlxTypedGroup<FlxSprite>;
-	var textGroup:FlxTypedGroup<FlxSprite> = new FlxTypedGroup<FlxSprite>();
+	var textGroup:FlxTypedGroup<FlxSprite>;
+	textGroup = new FlxTypedGroup<FlxSprite>();
 	add(textGroup);
 
 	//Centered/Text options
