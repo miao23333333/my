@@ -19,7 +19,7 @@ jobs:
         run: |
           echo "GITHUB_REPOSITORY: $GITHUB_REPOSITORY"
           echo "REPO_PATH: ${{ env.REPO_PATH }}"
-          if [[ "$GITHUB_REPOSITORY"!= "${{ env.REPO_PATH }}" ]]; then
+          if [[ "$GITHUB_REPOSITORY" != "${{ env.REPO_PATH }}" ]]; then
             echo "Doesn't seem to be correct, returning SIGABRT..."
             exit 6
           else
