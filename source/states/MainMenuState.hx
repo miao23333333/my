@@ -70,14 +70,7 @@ class MainMenuState extends MusicBeatState
 		bg.screenCenter();
 		add(bg);
 		
-		var lg:FlxSprite = new FlxSprite(0, 0).loadGraphic(Paths.image('mainmenu/lg'));
-		lg.antialiasing = ClientPrefs.data.antialiasing;
-		lg.scrollFactor.set(0, 0);
-		lg.setGraphicSize(Std.int(lg.width * 1.175));
-		lg.updateHitbox();
-		lg.screenCenter();
-		add(lg);
-
+		
 		camFollow = new FlxObject(0, 0, 1, 1);
 		add(camFollow);
 
@@ -115,6 +108,14 @@ class MainMenuState extends MusicBeatState
 		    
 		}
 		
+		var lg:FlxSprite = new FlxSprite(0, 0).loadGraphic(Paths.image('mainmenu/lg'));
+		lg.antialiasing = ClientPrefs.data.antialiasing;
+		lg.scrollFactor.set(0, 0);
+		lg.setGraphicSize(Std.int(lg.width * 1.175));
+		lg.updateHitbox();
+		lg.screenCenter();
+		add(lg);
+		
 		changeItem();
 
 		#if ACHIEVEMENTS_ALLOWED
@@ -136,7 +137,7 @@ class MainMenuState extends MusicBeatState
 
 	function createLight(name:String, x:Float, y:Float) {
 	
-	    var menuLight:FlxSprite = new FlxSprite(x, y).loadGraphic(Paths.image(name));
+	    var menuLight:FlxSprite = new FlxSprite(x, y).loadGraphic(Paths.image(mainmenu/name));
 	    menuLight.antialiasing = ClientPrefs.data.antialiasing;
 		menuLight.scrollFactor.set(0, 0);
 		
