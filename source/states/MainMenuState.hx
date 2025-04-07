@@ -62,13 +62,21 @@ class MainMenuState extends MusicBeatState
 		persistentUpdate = persistentDraw = true;
 
 		var yScroll:Float = 0.25;
-		var bg:FlxSprite = new FlxSprite(-80).loadGraphic(Paths.image('mainmenu/bg'));
+		var bg:FlxSprite = new FlxSprite(0, 0).loadGraphic(Paths.image('mainmenu/bg'));
 		bg.antialiasing = ClientPrefs.data.antialiasing;
 		bg.scrollFactor.set(0, 0);
 		bg.setGraphicSize(Std.int(bg.width * 1.175));
 		bg.updateHitbox();
 		bg.screenCenter();
 		add(bg);
+		
+		var lg:FlxSprite = new FlxSprite(0, 0).loadGraphic(Paths.image('mainmenu/lg'));
+		lg.antialiasing = ClientPrefs.data.antialiasing;
+		lg.scrollFactor.set(0, 0);
+		lg.setGraphicSize(Std.int(lg.width * 1.175));
+		lg.updateHitbox();
+		lg.screenCenter();
+		add(lg);
 
 		camFollow = new FlxObject(0, 0, 1, 1);
 		add(camFollow);
@@ -81,12 +89,9 @@ class MainMenuState extends MusicBeatState
 		textGroup = new FlxTypedGroup<FlxSprite>();
 	    add(textGroup);
 
-		for (num => option in optionShit)
-		{
-			var menuLight:FlxSprite = createLight(option, 0, 0);
-			
+		for (i in 0...light.length) {
+		    createLight(light[i], 0, 0);
 		}
-
 		
 
 		var psychVer:FlxText = new FlxText(12, FlxG.height - 44, 0, "Psych Engine v" + psychEngineVersion, 12);
@@ -97,7 +102,7 @@ class MainMenuState extends MusicBeatState
 		fnfVer.scrollFactor.set();
 		fnfVer.setFormat(Paths.font("vcr.ttf"), 16, FlxColor.WHITE, LEFT, FlxTextBorderStyle.OUTLINE, FlxColor.BLACK);
 		add(fnfVer);
-		var theModVer:FlxText = new FlxText(12, FlxG.height - 44, 0, "The Mod v0.5", 12);
+		var theModVer:FlxText = new FlxText(12, FlxG.height - 64, 0, "vs QuiloByte DEOM", 12);
 		theModVer.scrollFactor.set();
 		theModVer.setFormat(Paths.font("vcr.ttf"), 16, FlxColor.WHITE, LEFT, FlxTextBorderStyle.OUTLINE, FlxColor.BLACK);
 		add(theModVer);
@@ -105,9 +110,9 @@ class MainMenuState extends MusicBeatState
 		var textX:Array<Float> = [40, 77, 490, 911, 1071];
 		var textY:Array<Float> = [266, 482, 611, 482, 266];
 		//y:266,482,611  x:40,77,490,911,1071
-		for (i in 0 ... mText.length) {
-		    var theText = menuText(mText[i], textX[i], textY[i], 40);
-		    textGroup.add(theText);
+		for (i in 0...mText.length) {
+		    menuText(mText[i], textX[i], textY[i], 40);
+		    
 		}
 		
 		changeItem();
@@ -126,7 +131,7 @@ class MainMenuState extends MusicBeatState
 		FlxG.camera.follow(camFollow, null, 0.15);
 		canDo = true;
 		
-		addTouchPad('LEFT_FULL', 'A_B');
+		addTouchPad('LEFT_RIGHT', 'A_B');
 	}
 
 	function createLight(name:String, x:Float, y:Float) {
@@ -191,7 +196,7 @@ class MainMenuState extends MusicBeatState
 	    var mtext:FlxText = new FlxText(x ,y, 0, text, size);
 		mtext.font = Paths.font("vcr.ttf");
 		mtext.color = FlxColor.BLACK;
-		
+		textGroup.add(mtext);
 		return mtext;
 	}
 	
