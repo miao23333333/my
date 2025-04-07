@@ -137,7 +137,7 @@ class MainMenuState extends MusicBeatState
 
 	function createLight(name:String, x:Float, y:Float) {
 	
-	    var menuLight:FlxSprite = new FlxSprite(x, y).loadGraphic(Paths.image(mainmenu/name));
+	    var menuLight:FlxSprite = new FlxSprite(x, y).loadGraphic(Paths.image('mainmenu/' + name));
 	    menuLight.antialiasing = ClientPrefs.data.antialiasing;
 		menuLight.scrollFactor.set(0, 0);
 		
