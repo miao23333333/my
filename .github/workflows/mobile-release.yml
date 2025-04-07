@@ -36,18 +36,6 @@ jobs:
   build:
     name: ${{ matrix.name }}
     needs: get-commit-hash
-    steps:
-       - name: Cache Haxe dependencies
-         uses: actions/cache@v4
-         with:
-            path: |
-               ~/haxelib
-               ~/.haxe
-            key: ${{ runner.os }}-haxelib-${{ hashFiles('setup/unix.sh') }}
-  
-       - name: Install dependencies
-         if: steps.cache.outputs.cache-hit != 'true'
-         run: ${{ matrix.setupCommand }}
     strategy:
       matrix:
         include:
