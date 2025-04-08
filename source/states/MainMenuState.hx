@@ -196,7 +196,7 @@ class MainMenuState extends MusicBeatState
 	    var mtext:FlxText = new FlxText(x ,y, 0, text, size);
 		mtext.font = Paths.font("vcr.ttf");
 		mtext.color = FlxColor.BLACK;
-		mtext.scrollFactor.set(0, 0)
+		mtext.scrollFactor.set(0, 0);
 		textGroup.add(mtext);
 		return mtext;
 	}
