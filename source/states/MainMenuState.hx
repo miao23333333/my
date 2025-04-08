@@ -111,7 +111,6 @@ class MainMenuState extends MusicBeatState
 		var lg:FlxSprite = new FlxSprite(0, 0).loadGraphic(Paths.image('mainmenu/lg'));
 		lg.antialiasing = ClientPrefs.data.antialiasing;
 		lg.scrollFactor.set(0, 0);
-		lg.setGraphicSize(Std.int(lg.width * 1.175));
 		lg.updateHitbox();
 		lg.screenCenter();
 		add(lg);
@@ -144,7 +143,7 @@ class MainMenuState extends MusicBeatState
 		menuLight.updateHitbox();
 		menuLight.screenCenter();
 		menuLightGroup.add(menuLight);
-		menuLight.alpha = 0.8;
+		menuLight.alpha = 0.6;
 		return menuLight;
 	    
 	
@@ -197,6 +196,7 @@ class MainMenuState extends MusicBeatState
 	    var mtext:FlxText = new FlxText(x ,y, 0, text, size);
 		mtext.font = Paths.font("vcr.ttf");
 		mtext.color = FlxColor.BLACK;
+		mtext.scrollFactor.set(0, 0)
 		textGroup.add(mtext);
 		return mtext;
 	}
